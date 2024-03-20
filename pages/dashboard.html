@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    Misna Live rate
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: "arial", heletica, sans-serif;
+      font-size: 24px;
+      background: white url('./26010_35.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-animation: 20s linear 0s normal none infinite animate;
+      -moz-animation: 20s linear 0s normal none infinite animate;
+      -ms-animation: 20s linear 0s normal none infinite animate;
+      -o-animation: 20s linear 0s normal none infinite animate;
+      animation: 20s linear 0s normal none infinite animate;
+      background-image: url('../SL_121219_26010_26.jpg');
+      color: #005043;
+      height: 100vh;
+    }
+
+    .row {
+      padding: 25px;
+    }
+
+    .card-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      opacity: 90%;
+    }
+
+    .card-logo img {
+      margin-right: 40px;
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      color: black;
+      font-weight: bold;
+    }
+
+    .card {
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+
+    .tradingview-widget-container {
+      width: 100%;
+    }
+
+    .rate-card {
+      display: none;
+    }
+
+    .card-table {
+      border-collapse: collapse;
+      border-spacing: 10px;
+      opacity: 0.9;
+    }
+
+    table {
+      display: inline-table;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-left: 0px;
+      font-size: 1.8vw;
+      color: #005043;
+    }
+
+    .card-table tbody {
+      margin-top: 10px;
+
+    }
+    .card-table  tr {
+      background-color: #f9f9f9;
+      /* Light gray background for odd rows */
+    }
+
+    .card-table tbody tr:nth-child(even) {
+      background-color: #e6e6e6;
+      /* Dark gray background for even rows */
+    }
+
+
+
+    .card-table th {
+      background-color:#005043;
+      color: white;
+    }
+
+    .card-table tbody td {
+ 
+    }
+
+    .card-table th,
+    .card-table td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .card-table td {
+      font-weight: bold;
+    }
+
+    /* Hover effect for better user experience */
+    .card-table tbody tr:hover {
+      background-color: #d3d3d3;
+      /* Lighter gray on hover */
+    }
+
+    .date-time {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #005043;
+      margin-top: 20px;
+      margin-left: 150px;
+    }
+
+    .date-time h3 {
+      font-size: 3vw;
+      font-weight: 600;
+    }
+
+
+    .row2 {
+      display: flex;
+      flex-direction: row;
+      margin-top: 50px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .fading-label {
+      transition: color 1s ease;
+      /* Adjust the duration and timing function as needed */
+    }
+
+    .gold-silver {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .gold {
+      background-image: url('');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .silver {
+      background-image: url('');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .gold-silver .label {
+      display: flex;
+      align-items: center;
+      font-size: 1.8vw;
+      font-weight: 600;
+    }
+
+    .gold-silver .label h5 {
+      font-size: 30px;
+    }
+
+    .gold-silver .buy,
+    .gold-silver .sell {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.8vw;
+    }
+
+
+    .gold-silver .buy .buy-label,
+    .gold-silver .sell .sell-label {
+      display: flex;
+      font-weight: 600;
+    }
+
+    .gold-silver .buy .buy-label div:first-child,
+    .gold-silver .sell .sell-label div:first-child {
+      margin-top: 0px;
+    }
+
+    .gold-silver .buy .input-box,
+    .gold-silver .sell .input-box {
+      width: max-content;
+      font-size: 2vw;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      border: 3px solid #fff;
+    }
+
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="d-flex justify-content-center mt-4">
+        <div id="navbar" >
+          <ul class="navbar-nav  ">
+            <li class="nav-item d-flex align-items-center">
+              <div class="btn btn-outline btn-sm mb-0 me-3" style="color: white;font-size: medium;" target="_blank"><span id='time'></span></div>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+          <!-- GOLD -->
+      <div class="label" style="display: flex;justify-content: center;align-items: center;background-color: #005043;color: white;">
+        <p>Gold</p>
+        <h5 style="color: white;">oz</h5>
+      </div>
+      <div class="d-flex mt-2" style="justify-content:space-around; background-color: rgba(255, 255, 255, 0.9);">
+      <div class="buy">
+        <div class="buy-label d-flex justify-content-center">
+          
+          <p>BUY</p>
+          <div
+          style="background-color: transparent;height: 32px;width: 32px; border: none;border-radius: 50%;display: flex;justify-content: center;align-items: center;margin-left: 5px;">
+          <i class="fa-solid fa-dollar-sign" style="color: #005043;"></i>
+          </div>
+        </div>
+        <div class="form-control input-box" id="goldInputLow"></div>
+        <label class="badge badge-success label-low mt-1" style="width: 100px; font-size:20px;"
+          id="lowLabelGold">0</label>
+      </div>
+  
+      <div class="sell">
+        <div class="sell-label d-flex justify-content-center">
+          
+          <p>SELL</p>
+          <div
+          style="background-color: transparent;height: 32px;width: 32px; border: none;border-radius: 50%;display: flex;justify-content: center;align-items: center;margin-left: 5px;">
+          <i class="fa-solid fa-dollar-sign" style="color: #005043;"></i>
+          </div>
+        </div>
+        <div class="form-control input-box" id="goldInputHigh"></div>
+        <label class="badge badge-success label-low mt-1" style="width: 100px; font-size:20px;"
+          id="highLabelGold">0</label>
+        </div>
+      </div>
+
+      <!-- silver -->
+      <div class=" label mt-4" style="display: flex;justify-content: center;align-items: center;background-color: #005043;color: #005043;">
+        <p style="color: white;">Silver</p>
+        <h5 style="color: white;">oz</h5>
+      </div>
+      <div class="d-flex mt-2" style="justify-content:space-around; background-color: rgba(255, 255, 255, 0.9);">
+      <div class="buy">
+        <div class="buy-label d-flex justify-content-center">
+          
+          <p>BUY</p>
+          <div
+          style="background-color: transparent;height: 32px;width: 32px; border: none;border-radius: 50%;display: flex;justify-content: center;align-items: center;margin-left: 5px;">
+          <i class="fa-solid fa-dollar-sign" style="color: #005043;"></i>
+          </div>
+        </div>
+        <div class="form-control input-box" id="silverInputLow"></div>
+        <label class="badge badge-success label-low mt-1" style="width: 100px; font-size:20px;"
+          id="lowLabelSilver">0</label>
+      </div>
+      <div class="sell">
+        <div class="sell-label d-flex justify-content-center">
+          
+          <p>SELL</p>
+          <div
+          style="background-color: transparent;height: 32px;width: 32px; border: none;border-radius: 50%;display: flex;justify-content: center;align-items: center;margin-left: 5px;">
+          <i class="fa-solid fa-dollar-sign" style="color: #005043;"></i>
+        </div>
+        </div>
+        <div class="form-control input-box" id="silverInputHigh"></div>
+        <label class="badge badge-success label-low mt-1" style="width: 100px; font-size:20px;"
+          id="highLabelSilver">0</label>
+      </div>
+    </div>
+       
+      </div>
+      
+    </div>
+  </main>
+ 
+
+  <div class="rate-card">
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="gold-card">
+            <img src="./assets/img/gold.png" alt="">
+            <h3>Gold</h3>
+          </div>
+          <p id="goldRate"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="silver-card">
+            <img src="./assets/img/silver.png" alt="">
+            <h3>Silver</h3>
+          </div>
+          <p id="silverRate"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+       
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/core/script.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+  <script type="module" src="../config/db.js"></script>
+  <script type="module" src="../assets/js/core/dashboardDB.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+  <script type="module" src="./assets/js/core/spotrateDB.js"></script>
+  <script type="module" defer src="./assets/js/core/aurifyview2.js"></script>
+  <script>
+    var ctx = document.getElementById("chart-bars").getContext("2d");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Sales",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#fff",
+          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          maxBarThickness: 6
+        },],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 15,
+              font: {
+                size: 14,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false
+            },
+            ticks: {
+              display: false
+            },
+          },
+        },
+      },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Gold",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#cb0c9f",
+          borderWidth: 3,
+          backgroundColor: gradientStroke1,
+          fill: true,
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          maxBarThickness: 6
+
+        },
+        {
+          label: "Silver",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#3A416F",
+          borderWidth: 3,
+          backgroundColor: gradientStroke2,
+          fill: true,
+          data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+          maxBarThickness: 6
+        },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#b2b9bf',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#b2b9bf',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <!-- Date & Time -->
+  <script>
+    `use strict`;
+    function refreshTime() {
+      const timeDisplay = document.getElementById("time");
+      const dateString = new Date().toLocaleString();
+      const formattedString = dateString.replace(", ", " - ");
+      timeDisplay.textContent = formattedString;
+    }
+    setInterval(refreshTime, 1000);
+
+  </script>
+
+  <!-- world map -->
+  <script type="module">
+    import createGlobe from 'https://cdn.skypack.dev/cobe'
+
+    let phi = 0
+    let canvas = document.getElementById("cobe")
+
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: 2,
+      width: 800,
+      height: 800,
+      phi: 0,
+      theta: 0,
+      dark: 0,
+      diffuse: 1.2,
+      scale: 1,
+      mapSamples: 16000,
+      mapBrightness: 5,
+      baseColor: [1, 1, 1],
+      markerColor: [1, 0.5, 1],
+      glowColor: [1, 1, 1],
+      offset: [0, 0],
+      markers: [
+        { location: [37.7595, -122.4367], size: 0.03 },
+        { location: [40.7128, -74.006], size: 0.1 },
+      ],
+      onRender: (state) => {
+        // Called on every animation frame.
+        // `state` will be an empty object, return updated params.
+        state.phi = phi
+        phi += 0.01
+      },
+    })
+  </script>
+
+ 
+
+</body>
+
+</html>
