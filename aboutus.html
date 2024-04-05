@@ -39,7 +39,94 @@
 
 
   <style>
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: 600px) {
+      body {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo .profile-pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 50%;
+        margin: 25px;
+      }
+
+      .logo .support {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: black
+      }
+
+      .logo .support p {
+        font-size: 18px;
+        margin-bottom: 0px;
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        padding: 0;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(250, 250, 250, 0.9);
+        width: 160px;
+        height: 135px;
+        margin: 7px;
+        border-radius: 15px;
+        padding: 20px;
+        padding-top: 25px;
+      }
+
+      .icon {
+        font-size: 20px;
+        color: white;
+        background-color: #B8860B;
+        border-radius: 50%;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .card p:last-child {
+        font-size: 12px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        outline: none;
+      }
+
+      a:hover {
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
       body {
         display: flex;
         flex-direction: column;
@@ -405,7 +492,13 @@
 
   </script>
 
-
+  <script>
+    // Check if the screen width is below a certain threshold (e.g., 1000 pixels)
+    if (window.innerWidth > 900) {
+      // Redirect users from mobile and tablet devices to a different page or show an error message
+      window.location.href = '../../../pages/error.html'; // Redirect to a mobile error page
+    }
+  </script>
 
 
 
