@@ -43,231 +43,9 @@
   <script src="https://cdn.jsdelivr.net/npm/round-slider@1.6.1/dist/roundslider.min.js"></script>
 
   <style>
-    @media only screen and (max-width: 600px) {
-      body {
-        padding: 0;
-      }
-
-      .main-content {
-        margin-top: 20%;
-      }
-
-      .rs-control .rs-range-color {
-        background-color: #B8860B;
-      }
-
-      .rs-control .rs-path-color {
-        background-color: #B8860B;
-      }
-
-      .rs-control .rs-handle {
-        background-color: #fff;
-      }
-
-      .rs-control .rs-bg-color {
-        background-color: #fff;
-      }
-
-      .rs-control .rs-border.rs-outer,
-      .rs-control .rs-border.rs-inner {
-        border: none;
-      }
-
-      .gold-price {
-        text-align: center;
-        margin: 20px 0px;
-        color: black;
-      }
-
-      .alert-slider {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .alert-slider p {
-        color: black;
-        margin-top: 30%;
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-
-      .value-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .slider-value {
-        text-align: center;
-        color: black;
-        margin-bottom: 50px;
-        padding: 0px 20px;
-        width: max-content;
-      }
-
-      .alert {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-      }
-
-      .alert-label {
-        text-align: center;
-        color: black;
-        font-size: 18px;
-      }
-
-      .alert button {
-        background-color: #B8860B;
-        border: none;
-        border-radius: 15px;
-        padding: 5px 15px;
-        color: black;
-        font-size: 18px;
-        margin-top: 20px;
-      }
-
-      .display {
-        display: flex;
-      }
-
-      .display-value {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .display-value p {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-      }
-
-      .display-value span {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-      }
-    }
-
-    @media only screen and (min-width: 600px) {
-      body {
-        padding: 0;
-      }
-
-      .main-content {
-        margin-top: 20%;
-      }
-
-      .rs-control .rs-range-color {
-        background-color: #B8860B;
-      }
-
-      .rs-control .rs-path-color {
-        background-color: #B8860B;
-      }
-
-      .rs-control .rs-handle {
-        background-color: #fff;
-      }
-
-      .rs-control .rs-bg-color {
-        background-color: #fff;
-      }
-
-      .rs-control .rs-border.rs-outer,
-      .rs-control .rs-border.rs-inner {
-        border: none;
-      }
-
-      .gold-price {
-        text-align: center;
-        margin: 20px 0px;
-        color: black;
-      }
-
-      .alert-slider {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .alert-slider p {
-        color: black;
-        margin-top: 30%;
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-
-      .value-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .slider-value {
-        text-align: center;
-        color: black;
-        margin-bottom: 50px;
-        padding: 0px 20px;
-        width: max-content;
-      }
-
-      .alert {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-      }
-
-      .alert-label {
-        text-align: center;
-        color: black;
-        font-size: 18px;
-      }
-
-      .alert button {
-        background-color: #B8860B;
-        border: none;
-        border-radius: 15px;
-        padding: 5px 15px;
-        color: black;
-        font-size: 18px;
-        margin-top: 20px;
-      }
-
-      .display {
-        display: flex;
-      }
-
-      .display-value {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .display-value p {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-      }
-
-      .display-value span {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-      }
-    }
-
     body {
       margin: 0;
-      padding: 40px;
+      padding: 0px 400px;
       font-family: "arial", heletica, sans-serif;
       font-size: 24px;
       background-image: url('./elegant-white-abstract-background.jpg');
@@ -278,108 +56,197 @@
       -ms-animation: 20s linear 0s normal none infinite animate;
       -o-animation: 20s linear 0s normal none infinite animate;
       animation: 20s linear 0s normal none infinite animate;
-
       height: 100vh;
     }
 
-    .row {
-      padding: 5px;
+    body {
+      padding: 0;
     }
 
-    .card-logo {
+    .main-content {
+      margin-top: 20%;
+    }
+
+    .rs-control .rs-range-color {
+      background-color: #B8860B;
+    }
+
+    .rs-control .rs-path-color {
+      background-color: #B8860B;
+    }
+
+    .rs-control .rs-handle {
+      background-color: #fff;
+    }
+
+    .rs-control .rs-bg-color {
+      background-color: #fff;
+    }
+
+    .rs-control .rs-border.rs-outer,
+    .rs-control .rs-border.rs-inner {
+      border: none;
+    }
+
+    .gold-price {
+      text-align: center;
+      margin: 20px 0px;
+      color: black;
+      font-size: 40px;
+    }
+
+    .alert-slider {
       display: flex;
+      flex-direction: row;
+    }
+
+    .alert-slider p {
+      color: black;
+      margin-top: 30%;
+      margin-right: 10px;
+      margin-left: 10px;
+      font-size: 40px;
+    }
+
+    .value-container {
+      display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
-      background-color: #fff;
-      opacity: 90%;
     }
 
-    .card-logo img {
-      margin-right: 40px;
+    .slider-value {
+      text-align: center;
+      color: black;
+      margin-bottom: 50px;
+      padding: 0px 20px;
+      width: max-content;
+      font-size: 40px;
     }
 
-    .rate-card {
-      display: none;
-    }
-
-    .date-time {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      color: #005043;
-      margin-top: 20px;
-      margin-left: 150px;
-    }
-
-    .date-time h3 {
-      font-size: 3vw;
-      font-weight: 600;
-    }
-
-    .fading-label {
-      transition: color 1s ease;
-      /* Adjust the duration and timing function as needed */
-    }
-
-    .gold-silver {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 20px;
-    }
-
-    .gold {
-      background-image: url('');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .silver {
-      background-image: url('');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .gold-silver .label {
-      display: flex;
-      align-items: center;
-      font-size: 1.8vw;
-      font-weight: 600;
-    }
-
-    .gold-silver .label h5 {
-      font-size: 30px;
-    }
-
-    .gold-silver .buy,
-    .gold-silver .sell {
+    .alert {
       display: flex;
       flex-direction: column;
-      font-size: 1.8vw;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
     }
 
-
-    .gold-silver .buy .buy-label,
-    .gold-silver .sell .sell-label {
-      display: flex;
-      font-weight: 600;
-    }
-
-    .gold-silver .buy .buy-label div:first-child,
-    .gold-silver .sell .sell-label div:first-child {
-      margin-top: 0px;
-    }
-
-    .gold-silver .buy .input-box,
-    .gold-silver .sell .input-box {
-      width: max-content;
-      font-size: 2vw;
-      font-weight: 600;
+    .alert-label {
       text-align: center;
-      color: #fff;
-      border: 3px solid #fff;
+      color: black;
+      font-size: 40px;
+    }
+
+    .alert button {
+      background-color: #B8860B;
+      border: none;
+      border-radius: 15px;
+      padding: 5px 15px;
+      color: black;
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .display {
+      display: flex;
+    }
+
+    .display-value {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .display-value p {
+      color: black;
+      font-size: 35px;
+      font-weight: 600;
+    }
+
+    .display-value span {
+      color: black;
+      font-size: 35px;
+      font-weight: 600;
+    }
+
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      body{
+        padding: 0px 10px;
+      }
+
+      .gold-price,
+      .alert-slider p ,
+      .slider-value,
+      .alert-label{
+        font-size: 20px;
+      }
+
+
+      .alert button,
+      .display-value p,
+      .display-value span{
+        font-size: 18px;
+      }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      body{
+        padding: 0px 20px;
+      }
+
+      .gold-price,
+      .alert-slider p ,
+      .slider-value,
+      .alert-label{
+        font-size: 25px;
+      }
+
+
+      .alert button,
+      .display-value p,
+      .display-value span{
+        font-size: 23px;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+      body{
+        padding: 0px 50px;
+      }
+
+      .gold-price,
+      .alert-slider p ,
+      .slider-value,
+      .alert-label{
+        font-size: 30px;
+      }
+
+
+      .alert button,
+      .display-value p,
+      .display-value span{
+        font-size: 28px;
+      }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      body{
+        padding: 0px 150px;
+      }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+      body{
+        padding: 0px 300px;
+      }
     }
   </style>
 </head>
@@ -427,7 +294,7 @@
 
 
 
-  <div class="rate-card">
+  <div class="rate-card" style="display: none;">
     <div class="col-lg-3">
       <div class="card">
         <div class="card-body">

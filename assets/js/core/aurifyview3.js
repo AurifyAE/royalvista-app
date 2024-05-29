@@ -103,9 +103,24 @@ function alertInitialValue() {
 
 // Function to show Alert
 function rateAlert() {
+    var radius = 120; // Default radius
+
+    // Check screen width and adjust radius accordingly
+    if ($(window).width() >= 600) {
+        radius = 200; // Adjusted radius for smaller devices
+    }
+
+    if ($(window).width() >= 900) {
+        radius = 300; // Adjusted radius for smaller devices
+    }
+
+    if ($(window).width() >= 1024) {
+        radius = 350; // Adjusted radius for smaller devices
+    }
+
     // Initialize the round slider on the element
     $("#slider").roundSlider({
-        radius: 120,
+        radius: radius,
         circleShape: "half-top",
         sliderType: "mid-range",
         showTooltip: false,
