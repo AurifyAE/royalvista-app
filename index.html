@@ -39,480 +39,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
   <style>
-    @media only screen and (max-width: 600px) {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-      }
-
-      .main {
-        padding: 0px;
-      }
-
-      .row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-      }
-
-      .label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        color: #005043;
-        width: 100%;
-        margin-top: 12px;
-      }
-
-      .main-content {
-        margin-top: 20%;
-      }
-
-      .card-table {
-        border-collapse: collapse;
-        border-spacing: 5px;
-        opacity: 0.9;
-        width: 100%;
-      }
-
-      table {
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-left: 0px;
-        font-size: 16px;
-        color: #fff;
-      }
-
-      .card-table tbody {
-        margin-top: 12px;
-      }
-
-      .card-table tr {
-        background-color: #b0b0b0;
-        /* Light gray background for odd rows */
-      }
-
-      .card-table tbody tr:nth-child(even) {
-        background-color: #c5c5c5;
-        /* Dark gray background for even rows */
-      }
-
-      .card-table th {
-        background-color: #696969;
-        color: white;
-      }
-
-      .card-table tbody td {
-        font-size: 12px;
-      }
-
-      .card-table th,
-      .card-table td {
-        padding: 10px;
-        text-align: center;
-      }
-
-      .card-table td {
-        font-weight: bold;
-        font-size: 12px;
-      }
-
-      /* Hover effect for better user experience */
-      .card-table tbody tr:hover {
-        background-color: #d3d3d3;
-        /* Lighter gray on hover */
-      }
-
-
-      .data {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: rgba(255, 255, 255, 0.9);
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-      }
-
-      .symbols {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #B8860B;
-        width: 100%;
-        padding: 10px;
-        height: 46px;
-        padding-left: 30px;
-        border-radius: 10px;
-        color: #fff;
-      }
-
-      .symbols .buy-label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .symbols .sell-label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .symbols .sell-label p,
-      .symbols .buy-label p {
-        font-size: 18px;
-        font-weight: 600;
-        margin-right: 8px
-      }
-
-      .symbols .sell-label .icon,
-      .symbols .buy-label .icon {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 7px;
-      }
-
-      .buy {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-right: 10px;
-      }
-
-      .buy div:last-child,
-      .sell div:last-child {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5px;
-        border-radius: 5px;
-      }
-
-      .buy .label,
-      .sell .label {
-        background-color: transparent;
-        padding: 0px;
-      }
-
-      .buy .icon {
-        font-size: 1.5rem;
-        margin-top: -10px;
-        padding: 0;
-        color: red;
-      }
-
-      .sell .icon {
-        font-size: 1.5rem;
-        margin-top: -7px;
-        padding: 0;
-        color: green;
-      }
-
-
-      .gold {
-        font-size: 20px;
-        border-radius: 10px;
-      }
-
-      .gold .label p {
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      .silver .label p {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      .gold .buy div:first-child,
-      .gold .sell div:first-child {
-        font-size: 18px;
-      }
-
-      .gold .buy div:last-child,
-      .gold .sell div:last-child {
-        font-size: 18px;
-      }
-
-      .silver {
-        font-size: 20px;
-        border-radius: 10px;
-      }
-
-      .silver .buy div:first-child,
-      .silver .sell div:first-child {
-        font-size: 14px;
-      }
-
-      .silver .buy div:last-child,
-      .silver .sell div:last-child {
-        font-size: 14px;
-      }
-
-      .gold .label,
-      .silver .label {
-        width: 80px;
-      }
-
-
-      .table-row .data {
-        border-radius: 10px;
-      }
-
-    }
-
-    @media only screen and (min-width: 600px) {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-      }
-
-      .main {
-        padding: 0px;
-      }
-
-      .row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-      }
-
-      .label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        color: #005043;
-        width: 100%;
-        margin-top: 12px;
-      }
-
-      .main-content {
-        margin-top: 20%;
-      }
-
-      .card-table {
-        border-collapse: collapse;
-        border-spacing: 5px;
-        opacity: 0.9;
-        width: 100%;
-      }
-
-      table {
-        display: inline-block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-left: 0px;
-        font-size: 16px;
-        color: #fff;
-      }
-
-      .card-table tbody {
-        margin-top: 12px;
-      }
-
-      .card-table tr {
-        background-color: #b0b0b0;
-        /* Light gray background for odd rows */
-      }
-
-      .card-table tbody tr:nth-child(even) {
-        background-color: #c5c5c5;
-        /* Dark gray background for even rows */
-      }
-
-      .card-table th {
-        background-color: #696969;
-        color: white;
-      }
-
-      .card-table tbody td {
-        font-size: 12px;
-      }
-
-      .card-table th,
-      .card-table td {
-        padding: 10px;
-        text-align: center;
-      }
-
-      .card-table td {
-        font-weight: bold;
-        font-size: 12px;
-      }
-
-      /* Hover effect for better user experience */
-      .card-table tbody tr:hover {
-        background-color: #d3d3d3;
-        /* Lighter gray on hover */
-      }
-
-
-      .data {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: rgba(255, 255, 255, 0.9);
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-      }
-
-      .symbols {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #B8860B;
-        width: 100%;
-        padding: 10px;
-        height: 46px;
-        padding-left: 30px;
-        border-radius: 10px;
-        color: #fff;
-      }
-
-      .symbols .buy-label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .symbols .sell-label {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-
-      .symbols .sell-label p,
-      .symbols .buy-label p {
-        font-size: 18px;
-        font-weight: 600;
-        margin-right: 8px
-      }
-
-      .symbols .sell-label .icon,
-      .symbols .buy-label .icon {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 7px;
-      }
-
-      .buy {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-right: 10px;
-      }
-
-      .buy div:last-child,
-      .sell div:last-child {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5px;
-        border-radius: 5px;
-      }
-
-      .buy .label,
-      .sell .label {
-        background-color: transparent;
-        padding: 0px;
-      }
-
-      .buy .icon {
-        font-size: 1.5rem;
-        margin-top: -10px;
-        padding: 0;
-        color: red;
-      }
-
-      .sell .icon {
-        font-size: 1.5rem;
-        margin-top: -7px;
-        padding: 0;
-        color: green;
-      }
-
-
-      .gold {
-        font-size: 20px;
-        border-radius: 10px;
-      }
-
-      .gold .label p {
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      .silver .label p {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      .gold .buy div:first-child,
-      .gold .sell div:first-child {
-        font-size: 18px;
-      }
-
-      .gold .buy div:last-child,
-      .gold .sell div:last-child {
-        font-size: 18px;
-      }
-
-      .silver {
-        font-size: 20px;
-        border-radius: 10px;
-      }
-
-      .silver .buy div:first-child,
-      .silver .sell div:first-child {
-        font-size: 14px;
-      }
-
-      .silver .buy div:last-child,
-      .silver .sell div:last-child {
-        font-size: 14px;
-      }
-
-      .gold .label,
-      .silver .label {
-        width: 80px;
-      }
-
-
-      .table-row .data {
-        border-radius: 10px;
-      }
-
-    }
-
-
     body {
       margin: 0;
-      padding: 0px;
+      padding: 0px 400px;
       font-family: "arial", Helvetica, sans-serif;
       font-size: 24px;
       background-image: url('./elegant-white-abstract-background.jpg');
@@ -530,43 +59,209 @@
       width: 100%;
     }
 
-    .rate-card {
-      display: none;
+    .logo {
+      width: 200px;
+      margin-top: 50px;
     }
 
     .date-time {
+      color: black;
+      font-size: 30px;
+    }
+
+    .symbols {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      color: #005043;
-      margin-top: 20px;
-      margin-left: 150px;
+      background-color: #B8860B;
+      width: 100%;
+      padding: 10px;
+      border-radius: 15px;
+      height: 60px;
     }
 
-    .date-time h3 {
-      font-size: 3vw;
+    .symbols .buy-sell-label {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .symbols .buy-sell-label p {
+      color: #fff;
+      font-size: 25px;
       font-weight: 600;
     }
 
-    .fading-label {
-      transition: color 1s ease;
-      /* Adjust the duration and timing function as needed */
+    .data {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #fff;
+      opacity: 80%;
+      width: 100%;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    .data .label {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .data .label p {
+      font-size: 35px;
+      font-weight: 600;
+      color: #B8860B;
+    }
+
+    .data .buy-sell .input-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+      font-weight: 600;
+      padding: 15px;
+    }
+
+    .data .buy-sell label {
+      font-size: 25px;
+    }
+
+    table {
+      width: 100%;
+      margin: 30px 0px;
+    }
+
+    table thead tr {
+      background-color: #696969;
+    }
+
+    table thead tr th {
+      font-size: 22px;
+      color: #DAA520;
+      padding: 10px;
+    }
+
+    table tr {
+      background-color: #b0b0b0;
+      /* Light gray background for odd rows */
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #c5c5c5;
+      /* Dark gray background for even rows */
+    }
+
+    table tbody tr td {
+      font-size: 22px;
+      font-weight: 600;
+      padding: 10px;
+      color: #fff;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 0px 10px;
+      }
+
+      .logo {
+        width: 120px;
+        margin-top: 50px;
+      }
+
+      .date-time {
+        color: black;
+        font-size: 18px;
+      }
+
+      .symbols {
+        height: 50px;
+      }
+
+      .symbols .buy-sell-label .icon,
+      .symbols .buy-sell-label p {
+        font-size: 18px;
+      }
+
+      .symbols .buy-sell-label .icon {
+        margin-bottom: 6px;
+      }
+
+      .data .label p,
+      .data .label h5 {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .data .buy-sell .input-box {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .data .buy-sell label {
+        font-size: 15px;
+      }
+
+      table {
+        margin: 30px -10px;
+      }
+
+      table thead tr th {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      table tbody tr td {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px;
+      }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      body {
+        padding: 0px 20px;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+      body {
+        padding: 0px 50px;
+      }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      body {
+        padding: 0px 100px;
+      }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+      body {
+        padding: 0px 400px;
+      }
     }
   </style>
 </head>
 
 <body class="d-flex justify-content-center align-items-center">
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <div class="col-lg-4 d-flex justify-content-center">
-      <img class="logo" src="./royal-vista-logo.png" alt="" style="width: 120px; margin-top:5px;">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <img class="logo" src="./royal-vista-logo.png" alt="">
     </div>
     <!-- Navbar -->
     <nav class="d-flex justify-content-center mt-2">
       <div id="navbar">
         <ul class="navbar-nav  ">
           <li class="nav-item d-flex align-items-center">
-            <div class="btn btn-outline btn-sm" style="color: white;font-size: medium; background-color: #B8860B;"
-              target="_blank"><span id='time'></span></div>
+            <div class="btn btn-outline btn-sm" target="_blank"><span id='time' class="date-time"></span></div>
           </li>
         </ul>
       </div>
@@ -576,13 +271,13 @@
       <div class="row">
         <div class="symbols">
           <div></div>
-          <div class="buy-label">
+          <div class="buy-sell-label">
             <p>BUY</p>
             <div>
               <i class="fa-solid fa-dollar-sign icon" style="color: #fff;"></i>
             </div>
           </div>
-          <div class="sell-label">
+          <div class="buy-sell-label">
             <p>SELL</p>
             <div>
               <i class="fa-solid fa-dollar-sign icon" style="color: #fff;"></i>
@@ -590,84 +285,74 @@
           </div>
         </div>
 
-
         <!-- GOLD -->
-        <div class="data gold">
+        <div class="data">
           <div class="label">
             <p>Gold</p>
-            <h5 style="color: #005043;">oz</h5>
+            <h5 style="color: #B8860B;">oz</h5>
           </div>
-          <div class="buy">
+          <div class="buy-sell">
             <div class="form-control input-box" id="goldInputLow"></div>
             <div>
-              <i class="fa-solid fa-caret-down icon"></i>
+              <i class="fa-solid fa-caret-down icon" style="color: red;"></i>
               <label id="lowLabelGold">0</label>
             </div>
           </div>
-          <div class="sell">
+          <div class="buy-sell">
             <div class="form-control input-box" id="goldInputHigh"></div>
             <div>
-              <i class="fa-solid fa-caret-up icon"></i>
+              <i class="fa-solid fa-caret-up icon" style="color: green;"></i>
               <label id="highLabelGold">0</label>
             </div>
           </div>
         </div>
 
         <!-- silver -->
-        <div class="data silver">
+        <div class="data">
           <div class=" label">
             <p>Silver</p>
-            <h5 style="color: #005043;">oz</h5>
+            <h5 style="color: #B8860B;">oz</h5>
           </div>
-          <div class="buy">
+          <div class="buy-sell">
             <div class="form-control input-box" id="silverInputLow"></div>
             <div>
-              <i class="fa-solid fa-caret-down icon"></i>
+              <i class="fa-solid fa-caret-down icon" style="color: red;"></i>
               <label id="lowLabelSilver">0</label>
             </div>
           </div>
-
-          <div class="sell">
+          <div class="buy-sell">
             <div class="form-control input-box" id="silverInputHigh"></div>
             <div>
-              <i class="fa-solid fa-caret-up icon"></i>
+              <i class="fa-solid fa-caret-up icon" style="color: green;"></i>
               <label id="highLabelSilver">0</label>
             </div>
           </div>
         </div>
-
-
       </div>
-      <div style="margin-top: 10px;" class="table-row">
-        <div class="data">
-          <div class="row">
-            <div>
-              <div class="col-md-12 card-table">
-                <table>
-                  <thead style="margin-bottom: 0px;" class="col-md-12">
-                    <tr class="col-md-12" style="font-size: 12px;">
-                      <th class="col-md-3" colspan="2">COMMODITY</th>
-                      <th class="col-md-3">UNIT</th>
-                      <th class="col-md-3">BUY (<span id="currencySymbol">AED</span>)</th>
-                      <th class="col-md-3">SELL (<span id="currencySymbol">AED</span>)</th>
-                    </tr>
-                    <tr style="height: 8px;background-color: transparent;"></tr>
-                  </thead>
 
-                  <tbody id="tableBodyTV">
-                    <!-- Table body content will be dynamically updated here -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+
+      <table>
+        <thead style="margin-bottom: 0px;" class="col-md-12">
+          <tr class="col-md-12" style="font-size: 12px;">
+            <th class="col-md-3" colspan="2">COMMODITY</th>
+            <th class="col-md-3">UNIT</th>
+            <th class="col-md-3">BUY (<span id="currencySymbol">AED</span>)</th>
+            <th class="col-md-3">SELL (<span id="currencySymbol">AED</span>)</th>
+          </tr>
+          <tr style="height: 8px;background-color: transparent;"></tr>
+        </thead>
+
+        <tbody id="tableBodyTV">
+          <!-- Table body content will be dynamically updated here -->
+        </tbody>
+      </table>
+
     </div>
   </main>
 
 
-  <div class="rate-card">
+  <div class="rate-card" style="display: none;">
     <div class="col-lg-3">
       <div class="card">
         <div class="card-body">
@@ -906,13 +591,13 @@
     setInterval(refreshTime, 1000);
 
   </script>
-  <script>
+  <!-- <script>
     // Check if the screen width is below a certain threshold (e.g., 1000 pixels)
     if (window.innerWidth > 900) {
       // Redirect users from mobile and tablet devices to a different page or show an error message
       window.location.href = '../../../pages/error.html'; // Redirect to a mobile error page
     }
-  </script>
+  </script> -->
 
 </body>
 
