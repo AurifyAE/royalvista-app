@@ -1,50 +1,57 @@
 import { getFirestore, deleteDoc, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 import { app } from '../../../config/db.js';
 
-const firestore = getFirestore(app)
+const script = document.createElement("script");
+script.src =
+    "https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js";
+document.head.appendChild(script);
+
+const socket = io("https://capital-server-9ebj.onrender.com", {
+    query: { secret: "aurify@123" }, // Pass secret key as query parameter
+});
+
+const firestore = getFirestore(app);
+
+socket.on("connect", () => {
+    console.log("Connected to WebSocket server");
+    requestMarketData(["GOLD", "SILVER"]);
+});
+
+// Request market data based on symbols
+function requestMarketData(symbols) {
+    socket.emit("request-data", symbols);
+}
 
 setInterval(() => {
     fetchData();
     document.getElementById('goldRateValue').textContent = '$' + goldValue.toFixed(2);
 }, 500);
 
-// Gold API KEY
-const API_KEY = 'goldapi-fbqpmirloto20zi-io'
-
 let goldValue, silverValue, alertValue, currentGoldValue, alert;
+
+let goldData = {};
 
 
 // Function to Fetch Gold API Data
 async function fetchData() {
-    var myHeaders = new Headers();
-    myHeaders.append("x-access-token", API_KEY);
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-    };
-
     try {
-        const responseGold = await fetch("https://www.goldapi.io/api/XAU/USD", requestOptions);
-        // const responseSilver = await fetch("https://www.goldapi.io/api/XAG/USD", requestOptions);
+        socket.on("market-data", (data) => {
+            if (data && data.symbol) {
+                if (data.symbol === "Gold") {
+                    goldData = data;
+                    // updateGoldUI();
+                } else if (data.symbol === "Silver") {
+                    silverData = data;
+                }
+            } else {
+                console.warn("Received malformed market data:", data);
+            }
 
-        if (!responseGold.ok && !responseSilver.ok) {
-            throw new Error('One or more network responses were not OK');
-        }
-
-        const resultGold = await responseGold.json();
-        // const resultSilver = await responseSilver.json();
-
-        // Adjust based on the actual API response structure
-        var goldValueUSD = parseFloat(resultGold.price);
-        // var silverValueUSD = parseFloat(resultSilver.price)
-
-        goldValue = goldValueUSD;
-        currentGoldValue = goldValueUSD;
-        playAlert(goldValueUSD)
-
+            const value = goldData.bid;
+            goldValue = value;
+            currentGoldValue = value;
+            playAlert(value)
+        });
 
     } catch (error) {
         console.error('Error fetching gold and silver values:', error);
